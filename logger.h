@@ -34,11 +34,11 @@ class Logger {
   ~Logger();
 
  private:
-  std::string m_filename_ = "test";  //文件名
-  std::ofstream m_fout_;    //输出流
+  std::ofstream m_fout_;  //输出流
   Level m_level;
-  int m_max;  //日志文件最大可达
-  int m_len;  //日志长度
+  int m_max;                        //日志文件最大可达
+  int m_len;                        //日志长度
+  std::string m_filename_{"test"};  //文件名
   static const char* s_level[LEVEL_COUNT];
   static Logger* m_instance_;
 };

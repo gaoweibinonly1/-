@@ -1,6 +1,5 @@
 #include "logger.h"
 
-
 std::string GetTimeNow() {
   time_t ticks = time(nullptr);
   struct tm* ptm = localtime(&ticks);
@@ -15,7 +14,10 @@ const char* Logger::s_level[LEVEL_COUNT] = {"DEBUG", "INFO", "WARN", "ERROR",
                                             "FATAL"};
 
 Logger::Logger()
-    : m_level(DEBUG), m_max(0), m_filename_(m_filename_ + GetTimeNow()) {
+    : m_level(DEBUG),
+      m_max(65535),
+      m_len(0),
+      m_filename_(m_filename_ + GetTimeNow()) {
   open();
 }
 
@@ -38,7 +40,7 @@ void Logger::open() {
   }
   m_fout_.seekp(0, std::ios::end);
   m_len = m_fout_.tellp();
-  
+
   std::cout << "open success" << std::endl;
 }
 
