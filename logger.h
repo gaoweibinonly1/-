@@ -24,7 +24,7 @@ class Logger {
 
   void open();
   void close();
-  void level(Level level) { m_level = level; }
+  void Setlevel(Level level) { m_level = level; }
   void MaxSize(int bytes) { m_max = bytes; }
   void rotate();
 
